@@ -45,8 +45,9 @@ function Admin() {
           <h1>Página do Administrador</h1>
 
           <div id="field-input">
-            <label>Arquivo:</label>
+            <label htmlFor="file">Arquivo:</label>
             <input
+              id="file"
               type="text"
               value={file}
               onChange={(event) => setFile(event.target.value)}

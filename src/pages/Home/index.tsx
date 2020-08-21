@@ -21,8 +21,9 @@ function Home() {
           <h1>Home</h1>
 
           <div id="field-input">
-            <label>CPF:</label>
+            <label htmlFor="cpf">CPF:</label>
             <input
+              id="cpf"
               type="text"
               value={cpf}
               onChange={(event) => setCpf(event.target.value)}

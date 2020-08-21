@@ -38,8 +38,9 @@ function Login() {
           <h1>Login</h1>
 
           <div id="field-input">
-            <label>Username:</label>
+            <label htmlFor="username">Username:</label>
             <input
+              id="username"
               type="text"
               value={username}
               onChange={(event) => setUsername(event.target.value)}
@@ -47,8 +48,9 @@ function Login() {
           </div>
 
           <div id="field-input">
-            <label>Senha:</label>
+            <label htmlFor="password">Senha:</label>
             <input
+              id="password"
               type="password"
               value={password}
               onChange={(event) => setPassword(event.target.value)}
