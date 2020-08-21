@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
 // import api from "../../services/api";
@@ -9,6 +9,12 @@ function Admin() {
   const history = useHistory();
 
   const [file, setFile] = useState("");
+
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      history.push("/");
+    }
+  }, []);
 
   function handleLogout() {
     localStorage.removeItem("token");
