@@ -1,8 +1,8 @@
-/* :root {
-  --primary-color: #34CB79;
-  --title-color: #322153;
-  --text-color: #6C6C80;
-} */
+:root {
+  --primary-color: #322153;
+  --background-color: #f0f0f5;
+  --text-color: #6c6c80;
+}
 
 * {
   margin: 0;
@@ -10,16 +10,21 @@
   box-sizing: border-box;
 }
 
-/* body {
-  background: #F0F0F5;
+body {
+  background-color: var(--background-color);
   color: var(--text-color);
 }
 
-body, input, button {
+body,
+input,
+button {
   font-family: Roboto, Arial, Helvetica, sans-serif;
+  color: var(--text-color);
 }
 
-h1, h2, h3, h4, h5, h6 {
-  color: var(--title-color);
+h1,
+h2,
+h3 {
+  color: var(--primary-color);
   font-family: Ubuntu;
-} */
+}

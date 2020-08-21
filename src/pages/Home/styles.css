@@ -1,2 +1,23 @@
 #page-home {
+  width: 100vw;
+  height: 100vh;
+}
+
+#page-home header {
+  height: 10%;
+
+  padding-left: 5%;
+  padding-right: 5%;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+#page-home h1 {
+  height: 90%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
