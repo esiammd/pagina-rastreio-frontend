@@ -1,20 +1,21 @@
 import React, { FormEvent, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
+import Dropzone from "../../components/Dropzone";
 
-// import api from "../../services/api";
+import api from "../../services/api";
 
 import "./styles.css";
 
 function Admin() {
   const history = useHistory();
 
-  const [file, setFile] = useState("");
+  const [file, setFile] = useState<File>();
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       history.push("/");
     }
-  }, []);
+  }, [history]);
 
   function handleLogout() {
     localStorage.removeItem("token");
@@ -25,9 +26,19 @@ function Admin() {
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
 
+    const data = new FormData();
+    if (file) {
+      data.append("file", file);
+    }
+
     try {
       const token = localStorage.getItem("token");
-      console.log("token: ", token);
+
+      await api.post("uploads", data, {
+        headers: {
+          Authorization: token,
+        },
+      });
     } catch (erro) {
       alert("Erro");
     }
@@ -45,13 +56,7 @@ function Admin() {
           <h1>Página do Administrador</h1>
 
           <div id="field-input">
-            <label htmlFor="file">Arquivo:</label>
-            <input
-              id="file"
-              type="text"
-              value={file}
-              onChange={(event) => setFile(event.target.value)}
-            />
+            <Dropzone onFileUploaded={setFile} />
           </div>
 
           <button type="submit" id="button">
