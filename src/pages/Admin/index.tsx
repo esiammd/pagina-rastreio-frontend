@@ -29,6 +29,8 @@ function Admin() {
     const data = new FormData();
     if (file) {
       data.append("file", file);
+    } else {
+      alert("Selecione um arquivo para ser enviado");
     }
 
     try {
@@ -39,6 +41,8 @@ function Admin() {
           Authorization: token,
         },
       });
+
+      alert("Upload realizado com sucesso");
     } catch (erro) {
       alert("Erro");
     }
