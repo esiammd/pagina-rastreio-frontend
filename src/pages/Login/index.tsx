@@ -6,10 +6,10 @@ import api from "../../services/api";
 import "./styles.css";
 
 function Login() {
-  const history = useHistory();
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const history = useHistory();
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();

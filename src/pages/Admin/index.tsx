@@ -7,9 +7,9 @@ import api from "../../services/api";
 import "./styles.css";
 
 function Admin() {
-  const history = useHistory();
-
   const [file, setFile] = useState<File>();
+
+  const history = useHistory();
 
   useEffect(() => {
     if (!localStorage.getItem("token")) {
