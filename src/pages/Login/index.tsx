@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 import api from "../../services/api";
 
@@ -9,7 +10,22 @@ function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const [isShowPassword, setIsShowPassword] = useState(false);
+
   const history = useHistory();
+
+  function showPassword() {
+    const element = document.getElementById("password");
+    const typeElement = element?.getAttribute("type");
+
+    setIsShowPassword(!isShowPassword);
+
+    if (typeElement === "password") {
+      element?.setAttribute("type", "text");
+    } else {
+      element?.setAttribute("type", "password");
+    }
+  }
 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
@@ -49,12 +65,17 @@ function Login() {
 
           <div id="field-input">
             <label htmlFor="password">Senha:</label>
-            <input
-              id="password"
-              type="password"
-              value={password}
-              onChange={(event) => setPassword(event.target.value)}
-            />
+            <div id="input-button">
+              <input
+                id="password"
+                type="password"
+                value={password}
+                onChange={(event) => setPassword(event.target.value)}
+              />
+              <button type="button" onClick={showPassword}>
+                {isShowPassword === false ? <FiEye /> : <FiEyeOff />}
+              </button>
+            </div>
           </div>
 
           <button type="submit" id="button">

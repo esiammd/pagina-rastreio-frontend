@@ -80,7 +80,7 @@
   border-radius: 5px;
 }
 
-#page-login form button {
+#button {
   width: 100%;
   height: 50px;
 
@@ -95,7 +95,48 @@
   transition: 0.2s;
 }
 
-#page-login form button:hover {
+#button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#input-button {
+  display: flex;
+
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#input-button input {
+  width: 100%;
+  height: 50px;
+  padding: 0 20px;
+
+  border: 0px;
+
+  color: var(--text-color);
+  font-size: 16px;
+}
+
+#input-button button {
+  display: flex;
+  justify-content: center;
+
+  padding: 12px;
+
+  text-decoration: none;
+
+  background-color: transparent;
+  border: 0px;
+
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: bold;
+
+  transition: 0.2s;
+}
+
+#input-button button:hover {
   cursor: pointer;
   opacity: 0.8;
 }
