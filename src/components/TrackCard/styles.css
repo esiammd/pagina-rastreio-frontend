@@ -1,0 +1,70 @@
+#card {
+  width: 600px;
+  padding: 20px 40px;
+
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+#header-card {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+#card img {
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+#main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 24px 0;
+}
+
+#status {
+  text-align: center;
+  margin-right: 120px;
+}
+
+#date {
+  text-align: center;
+}
+
+#button-historic {
+  display: flex;
+  justify-content: flex-end;
+
+  padding-top: 20px;
+  border-top: 1px solid #ddd;
+}
+
+#button-historic button {
+  background-color: transparent;
+  border: 0;
+
+  color: #322153;
+
+  transition: 0.2s;
+}
+
+#button-historic button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+@media (max-width: 700px) {
+  #card {
+    width: 335px;
+    padding: 24px;
+  }
+
+  #status {
+    margin-right: 80px;
+  }
+}
