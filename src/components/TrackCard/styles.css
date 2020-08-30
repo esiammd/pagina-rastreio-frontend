@@ -1,0 +1,118 @@
+#card {
+  width: 800px;
+  padding: 20px 40px 0px 40px;
+
+  background-color: #fff;
+  border-radius: 10px;
+}
+
+#header-card {
+  display: flex;
+  justify-content: space-between;
+
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+#card img {
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+#current-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  margin: 24px 0;
+}
+
+#status {
+  text-align: center;
+  margin-right: 120px;
+}
+
+#date {
+  text-align: center;
+}
+
+#button-historic {
+  display: flex;
+  justify-content: flex-end;
+
+  padding: 16px 0px;
+  border-top: 1px solid #ddd;
+}
+
+#button-historic button {
+  background-color: transparent;
+  border: 0;
+
+  color: #322153;
+
+  transition: 0.2s;
+}
+
+#button-historic button:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+#button-historic button:disabled {
+  opacity: 0.5;
+}
+
+#historic {
+  padding: 24px 0px;
+
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+#historic h4 {
+  color: var(--primary-color);
+  margin-bottom: 24px;
+}
+
+#phase {
+  display: flex;
+  align-items: top;
+
+  padding: 24px 0px;
+
+  border-top: 1px solid #ddd;
+}
+
+#phase #status {
+  margin-right: 80px;
+}
+
+#historic #status img {
+  height: 32px;
+  margin-bottom: 2px;
+}
+
+#historic #status p {
+  font-size: 14px;
+}
+
+#historic #description h5 {
+  margin-bottom: 12px;
+
+  font-size: 16px;
+}
+
+#historic #description p {
+  line-height: 20px;
+}
+
+@media (max-width: 900px) {
+  #card {
+    width: 335px;
+    padding: 24px;
+  }
+
+  #status {
+    margin-right: 80px;
+  }
+}
