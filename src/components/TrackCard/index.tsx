@@ -6,9 +6,11 @@ import in_transit from "../../assets/in_transit.svg";
 import on_delivery from "../../assets/on_delivery.svg";
 import delivered from "../../assets/delivered_mail.svg";
 
+import api from "../../services/api";
+
 import "./styles.css";
 
-interface Props {
+interface TrackCardProps {
   nameProduct: string;
   trackCode: string;
   status: string;
@@ -16,58 +18,84 @@ interface Props {
   hour: string;
 }
 
-const TrackCard: React.FC<Props> = ({
+interface TrackHistoricProps {
+  locale: string;
+  status: string;
+  observation: string;
+  date: string;
+  hour: string;
+}
+
+interface StatusProps {
+  icon: string;
+  description: string;
+  color: string;
+}
+
+const TrackCard: React.FC<TrackCardProps> = ({
   nameProduct,
   trackCode,
   status,
   date,
   hour,
 }) => {
-  const [statusIcon, setStatusIcon] = useState("");
-  const [statusDescription, setStatusDescription] = useState("");
-  const [statusColor, setStatusColor] = useState("");
+  const [showHistoric, setShowHistoric] = useState(false);
+  const [statusProps, setStatusProps] = useState<StatusProps>();
+  const [trackHistoric, setTrackHistoric] = useState<Array<TrackHistoricProps>>(
+    []
+  );
 
   useEffect(() => {
-    if (status === undefined) {
-      setStatusIcon(not_found);
-      setStatusDescription("Não Encontrado");
-      setStatusColor("#D50A0A");
-    }
-    if (status === "objeto postado") {
-      setStatusIcon(posted);
-      setStatusDescription("Objeto Postado");
-      setStatusColor("#322153");
-    }
-    if (status === "objeto encaminhado") {
-      setStatusIcon(in_transit);
-      setStatusDescription("Em Trânsito");
-      setStatusColor("#F3A409");
-    }
-    if (status === "objeto saiu para entrega ao destinatário") {
-      setStatusIcon(on_delivery);
-      setStatusDescription("Em Entrega");
-      setStatusColor("#1D6080");
-    }
-    if (status === "objeto entregue ao destinatário") {
-      setStatusIcon(delivered);
-      setStatusDescription("Entrega Efetuada");
-      setStatusColor("#578826");
-    }
+    setStatusProps(selectIcon(status));
   }, [status]);
+
+  function selectIcon(status: string) {
+    if (status === undefined) {
+      return {
+        icon: not_found,
+        description: "Não Encontrado",
+        color: "#D50A0A",
+      };
+    }
+    if (status.toLowerCase().includes("objeto postado")) {
+      return { icon: posted, description: "Objeto Postado", color: "#322153" };
+    }
+    if (status.toLowerCase() === "objeto encaminhado") {
+      return { icon: in_transit, description: "Em Trânsito", color: "#F3A409" };
+    }
+    if (status.toLowerCase() === "objeto saiu para entrega ao destinatário") {
+      return { icon: on_delivery, description: "Em Entrega", color: "#1D6080" };
+    }
+    if (status.toLowerCase() === "objeto entregue ao destinatário") {
+      return {
+        icon: delivered,
+        description: "Entrega Efetuada",
+        color: "#578826",
+      };
+    }
+  }
+
+  async function handleHistoric(trackCode: string) {
+    const historic = await api.get(`/tracks/${trackCode}`);
+    setTrackHistoric(historic.data);
+    setShowHistoric(!showHistoric);
+  }
 
   return (
     <div id="card">
       <div id="header-card">
-        <p>{nameProduct}</p>
         <p>
-          <strong style={{ color: statusColor }}>{trackCode}</strong>
+          <strong>{nameProduct}</strong>
+        </p>
+        <p>
+          <strong style={{ color: statusProps?.color }}>{trackCode}</strong>
         </p>
       </div>
 
-      <div id="main">
+      <div id="current-state">
         <div id="status">
-          <img src={statusIcon} alt={statusDescription} />
-          <p>{statusDescription}</p>
+          <img src={statusProps?.icon} alt={statusProps?.description} />
+          <p>{statusProps?.description}</p>
         </div>
 
         <div id="date">
@@ -77,8 +105,43 @@ const TrackCard: React.FC<Props> = ({
       </div>
 
       <div id="button-historic">
-        <button>+ Histórico</button>
+        <button
+          disabled={status === undefined}
+          type="button"
+          onClick={() => handleHistoric(trackCode)}
+        >
+          + Histórico
+        </button>
       </div>
+
+      {showHistoric && (
+        <div id="historic">
+          <h4>Histórico</h4>
+
+          {trackHistoric.map((item: TrackHistoricProps, index) => {
+            const status = selectIcon(item.status);
+
+            return (
+              <div key={index} id="phase">
+                <div id="status">
+                  <img src={status?.icon} alt={status?.description} />
+                  <p>{item.date}</p>
+                  <p>{item.hour}</p>
+                </div>
+
+                <div id="description">
+                  <h5>{item.status}</h5>
+                  {item.observation ? (
+                    <p>{item.observation}</p>
+                  ) : (
+                    <p>em {item.locale}</p>
+                  )}
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </div>
   );
 };

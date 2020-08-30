@@ -1,6 +1,6 @@
 #card {
-  width: 600px;
-  padding: 20px 40px;
+  width: 800px;
+  padding: 20px 40px 0px 40px;
 
   background-color: #fff;
   border-radius: 10px;
@@ -19,7 +19,7 @@
   margin-bottom: 8px;
 }
 
-#main {
+#current-state {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,7 +40,7 @@
   display: flex;
   justify-content: flex-end;
 
-  padding-top: 20px;
+  padding: 16px 0px;
   border-top: 1px solid #ddd;
 }
 
@@ -58,7 +58,55 @@
   opacity: 0.8;
 }
 
-@media (max-width: 700px) {
+#button-historic button:disabled {
+  opacity: 0.5;
+}
+
+#historic {
+  padding: 24px 0px;
+
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
+}
+
+#historic h4 {
+  color: var(--primary-color);
+  margin-bottom: 24px;
+}
+
+#phase {
+  display: flex;
+  align-items: top;
+
+  padding: 24px 0px;
+
+  border-top: 1px solid #ddd;
+}
+
+#phase #status {
+  margin-right: 80px;
+}
+
+#historic #status img {
+  height: 32px;
+  margin-bottom: 2px;
+}
+
+#historic #status p {
+  font-size: 14px;
+}
+
+#historic #description h5 {
+  margin-bottom: 12px;
+
+  font-size: 16px;
+}
+
+#historic #description p {
+  line-height: 20px;
+}
+
+@media (max-width: 900px) {
   #card {
     width: 335px;
     padding: 24px;
