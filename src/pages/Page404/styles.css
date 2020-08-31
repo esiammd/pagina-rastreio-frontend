@@ -1,2 +1,36 @@
 #page-page404 {
+  height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#page-page404 h1 {
+  font-size: 120px;
+  margin-bottom: 12px;
+}
+
+#page-page404 span {
+  margin-bottom: 32px;
+}
+
+#page-page404 a {
+  text-decoration: none;
+
+  color: var(--primary-color);
+  font-size: 16px;
+  font-weight: bold;
+
+  border: 2px solid var(--primary-color);
+  border-radius: 5px;
+
+  padding: 16px 40px;
+
+  transition: 0.2s;
+}
+
+#page-page404 a:hover {
+  opacity: 0.8;
 }
