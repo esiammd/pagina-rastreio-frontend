@@ -110,9 +110,22 @@
   #card {
     width: 335px;
     padding: 24px;
+    font-size: 15px;
   }
 
   #status {
-    margin-right: 80px;
+    margin-right: 60px;
+  }
+
+  #phase #status {
+    margin-right: 40px;
+  }
+
+  #historic #description h5 {
+    font-size: 15px;
+  }
+
+  #historic #description p {
+    font-size: 14px;
   }
 }

@@ -88,6 +88,6 @@
 
 @media (max-width: 700px) {
   #page-admin main form {
-    width: 300px;
+    width: auto;
   }
 }

@@ -143,6 +143,6 @@
 
 @media (max-width: 700px) {
   #page-login main form {
-    width: 300px;
+    width: auto;
   }
 }
