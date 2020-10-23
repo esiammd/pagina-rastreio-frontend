@@ -98,6 +98,29 @@ function Home() {
 
             <div id="row-cards">
               <div id="card-questions">
+                <h4>Quais produtos é possível rastrear?</h4>
+                <p>
+                  É possível rastrear todos os produtos vinculados ao seu CPF na
+                  Loja X (loja fictícia) que passam pelos Correios e cujo envio
+                  tenha origem ou destino no Brasil. Desta forma, você pode
+                  rastrear todas suas compras realizadas na Loja X.
+                </p>
+              </div>
+
+              <div id="card-questions">
+                <h4>
+                  A página informa que meu produto não foi encontrado. O que
+                  fazer?
+                </h4>
+                <p>
+                  Caso algum de seus produtos possua status de 'Não Encontrado'
+                  entre em contato conosco através do e-mail lojax@lojax.com
+                  (e-mail fictício) informando os seguintes dados: nome
+                  completo, CPF, nome do produto e código do produto.
+                </p>
+              </div>
+
+              {/* <div id="card-questions">
                 <h4>Como funcionam as notificações?</h4>
                 <p>
                   As notificações do nosso serviço são enviadas para o seu
@@ -106,17 +129,7 @@ function Home() {
                   clicando no ícone amarelo que aparece no canto inferior
                   direito da página de consulta.
                 </p>
-              </div>
-
-              <div id="card-questions">
-                <h4>Quais objetos é possível rastrear?</h4>
-                <p>
-                  É possível rastrear todos os objetos que passam pelos Correios
-                  cujo envio tenha origem ou destino no Brasil. Desta forma,
-                  você pode rastrear encomendas nacionais e internacionais,
-                  vindas de qualquer lugar do mundo, como a China, por exemplo.
-                </p>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>

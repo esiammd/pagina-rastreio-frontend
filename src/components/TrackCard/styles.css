@@ -63,10 +63,9 @@
 }
 
 #historic {
-  padding: 24px 0px;
+  padding-top: 24px;
 
   border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
 }
 
 #historic h4 {
@@ -109,7 +108,7 @@
 @media (max-width: 900px) {
   #card {
     width: 335px;
-    padding: 24px;
+    padding-top: 24px;
     font-size: 15px;
   }
 

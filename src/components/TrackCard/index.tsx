@@ -60,7 +60,7 @@ const TrackCard: React.FC<TrackCardProps> = ({
     if (status.toLowerCase().includes("objeto postado")) {
       return { icon: posted, description: "Objeto Postado", color: "#322153" };
     }
-    if (status.toLowerCase() === "objeto encaminhado") {
+    if (status.toLowerCase() === "objeto em trânsito - por favor aguarde") {
       return { icon: in_transit, description: "Em Trânsito", color: "#F3A409" };
     }
     if (status.toLowerCase() === "objeto saiu para entrega ao destinatário") {
