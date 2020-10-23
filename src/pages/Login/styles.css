@@ -1,8 +1,8 @@
-#page-home {
+#page-login {
   height: 100vh;
 }
 
-#page-home header {
+#page-login header {
   height: 15%;
 
   padding: 0 5%;
@@ -12,7 +12,7 @@
   align-items: center;
 }
 
-#page-home header a {
+#page-login header a {
   text-decoration: none;
 
   color: var(--primary-color);
@@ -27,20 +27,19 @@
   transition: 0.2s;
 }
 
-#page-home header a:hover {
+#page-login header a:hover {
   opacity: 0.8;
 }
 
-#page-home main {
+#page-login main {
+  height: 85%;
+
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#page-home main form {
-  margin: 136px 0;
-
+#page-login main form {
   width: 500px;
   padding: 40px;
 
@@ -52,7 +51,7 @@
   border-radius: 10px;
 }
 
-#page-home form h1 {
+#page-login form h1 {
   margin-bottom: 24px;
 }
 
@@ -101,64 +100,49 @@
   opacity: 0.8;
 }
 
-#common-questions {
+#input-button {
+  display: flex;
+
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+#input-button input {
   width: 100%;
-  padding: 48px 5%;
+  height: 50px;
+  padding: 0 20px;
 
-  background-color: var(--primary-color);
+  border: 0px;
+
+  color: var(--text-color);
+  font-size: 16px;
 }
 
-#common-questions h2 {
-  text-align: center;
-  margin-bottom: 60px;
-
-  color: #fff;
-}
-
-#row-cards {
+#input-button button {
   display: flex;
   justify-content: center;
 
-  margin-top: 24px;
+  padding: 12px;
+
+  text-decoration: none;
+
+  background-color: transparent;
+  border: 0px;
+
+  color: var(--text-color);
+  font-size: 16px;
+  font-weight: bold;
+
+  transition: 0.2s;
 }
 
-#card-questions {
-  padding: 40px 24px;
-  width: 500px;
-
-  background-color: #fff;
-  border-radius: 10px;
-}
-
-#card-questions + #card-questions {
-  margin-left: 24px;
-}
-
-#card-questions h4 {
-  color: var(--primary-color);
-  margin-bottom: 16px;
-}
-
-#card-questions p {
-  line-height: 20px;
+#input-button button:hover {
+  cursor: pointer;
+  opacity: 0.8;
 }
 
 @media (max-width: 700px) {
-  #page-home main form {
+  #page-login main form {
     width: auto;
-  }
-
-  #row-cards {
-    display: flex;
-    flex-direction: column;
-  }
-
-  #card-questions {
-    width: auto;
-  }
-
-  #card-questions + #card-questions {
-    margin-left: 0;
-    margin-top: 24px;
   }
 }
